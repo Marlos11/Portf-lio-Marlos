@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 10px;
+}
+:root{
+    --color-white:#fff;
+    --color-black:#000000;
+    --color-pink: #d12f7d;   
+    --color-blue:#073fcc;
+    --color-purple:#5f01ac
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#person {
+    height: 100vh;  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-black);
+    
+}
+
+.person-content{
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   background-color: var(--color-black)
+
+}
+
+.person-content div h1 {
+    position: relative;
+    color: transparent;
+    
+    padding: 0 4px;
+
+    font-size: 4.5rem;
+    line-height: 6rem; 
+    width: fit-content;
+
+    animation: written_text 3s ease forwards;
+  
+} 
+.person-content div h1:nth-child(1){
+    animation-delay: 1s;
+}
+.person-content div h1:nth-child(2){
+    animation-delay: 2s;
+}
+.person-content div h1:nth-child(3){
+   animation: written_text_name 3s ease forwards; 
+    animation-delay: 2.5s;
+}
+
+.person-content div h1 span {
+    
+    position: absolute;
+    top:0;
+    left: 0;
+    
+    /* width: 0; */
+    height: 100%;
+
+    animation: written_text_box 1s ease;
+    animation-delay: .5s;
+    background: var(--color-blue);
+}
+
+    .person-content div h1:nth-child(1) span {
+        animation-delay: .5s;
+    }
+    .person-content div h1:nth-child(2) span {
+        animation-delay: 1s;
+    }
+    .person-content div h1:nth-child(3) span {
+        animation-delay: 1.5s;
+    }
+
+    .person-name{
+        margin-top: 11rem;
+    }
+
+    .stacks-content{
+        display: flex;
+        justify-content: center;
+        flex-direction: column; 
+
+        margin-top: 6rem;
+    }
+    
+    .stacks-content h3{
+        color: var(--color-white);
+        font-size: 1.15rem;
+
+        margin-left: 20px;
+    } 
+
+    .stack  {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .stack ul li {
+        display: flex;
+        align-items: center;
+
+        position: relative;
+
+        margin: 10px;
+        padding: 10px; 
+
+        list-style: none;
+    }
+
+    .stack ul li  img {
+        width: 30px;
+        height: 30px;
+        transition: transform .5s ease;
+
+    } 
+    .stack ul li div img:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    } 
+
+    .stack ul li div:hover::after{
+        content: attr(data);
+
+        position: absolute;
+        top: 50px;
+        left: 10px;
+
+        width: 20px;
+        height: 20px;
+
+        color: var(--color-white);
+    }
+
+    .person-background{
+        height: 100vh;
+        width: 50%; 
+
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse; 
+
+        z-index: 1;
+
+        background-image: url(./assets/Backgorund-portfolio-2.jpg);
+        background-size: cover;
+    } 
+    .person-background::after {
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0; 
+        z-index: -1;
+
+        background: linear-gradient(90deg, transparent 30%, var(--color-black));
+        opacity: .7;
+
+        
+    }
+
+    .links img{
+        width: 30px;
+        height: 30px;
+    }
+@keyframes written_text {
+    100%{
+      color:  var(--color-white);
+    }
+}
+@keyframes written_text_name{
+    100%{
+      color:  var(--color-blue);
+    }
+}
+@keyframes written_text_box{
+    50%{
+      width: 100%;
+      left:0
+    }
+
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
