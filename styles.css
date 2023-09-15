@@ -9,27 +9,29 @@ html {
     scroll-behavior: smooth;
     font-size: 10px;
 }
-:root{
-    --color-white:#fff;
-    --color-black:#000000;
-    --color-pink: #d12f7d;   
-    --color-blue:#073fcc;
-    --color-purple:#5f01ac
+
+:root {
+    --color-white: #fff;
+    --color-black: #000000;
+    --color-pink: #d12f7d;
+    --color-blue: #073fcc;
+    --color-purple: #5f01ac
 }
+
 body {
     font-family: 'Poppins', sans-serif;
 }
 
 #person {
-    height: 100vh;  
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     background-color: var(--color-black);
-    
+
 }
 
-.person-content{
+.person-content {
     height: 100%;
     width: 50%;
 
@@ -37,40 +39,42 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   background-color: var(--color-black)
-
+    background-color: var(--color-black)
 }
 
 .person-content div h1 {
     position: relative;
     color: transparent;
-    
+
     padding: 0 4px;
 
     font-size: 4.5rem;
-    line-height: 6rem; 
+    line-height: 6rem;
     width: fit-content;
 
     animation: written_text 3s ease forwards;
-  
-} 
-.person-content div h1:nth-child(1){
+
+}
+
+.person-content div h1:nth-child(1) {
     animation-delay: 1s;
 }
-.person-content div h1:nth-child(2){
+
+.person-content div h1:nth-child(2) {
     animation-delay: 2s;
 }
-.person-content div h1:nth-child(3){
-   animation: written_text_name 3s ease forwards; 
+
+.person-content div h1:nth-child(3) {
+    animation: written_text_name 3s ease forwards;
     animation-delay: 2.5s;
 }
 
 .person-content div h1 span {
-    
+
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
-    
+
     /* width: 0; */
     height: 100%;
 
@@ -79,128 +83,172 @@ body {
     background: var(--color-blue);
 }
 
-    .person-content div h1:nth-child(1) span {
-        animation-delay: .5s;
-    }
-    .person-content div h1:nth-child(2) span {
-        animation-delay: 1s;
-    }
-    .person-content div h1:nth-child(3) span {
-        animation-delay: 1.5s;
-    }
+.person-content div h1:nth-child(1) span {
+    animation-delay: 2s;
+}
 
-    .person-name{
-        margin-top: 11rem;
-    }
+.person-content div h1:nth-child(2) span {
+    animation-delay: 2.5s;
+}
 
-    .stacks-content{
-        display: flex;
-        justify-content: center;
-        flex-direction: column; 
+.person-content div h1:nth-child(3) span {
+    animation-delay: 3s;
+}
 
-        margin-top: 6rem;
-    }
+.person-name {
+    margin-top: 11rem;
+}
+
+.stacks-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 6rem;
+}
+
+.stacks-content h3 {
+    color: var(--color-white);
+    font-size: 1.15rem;
+
+    margin-left: 20px;
+}
+
+.stack {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.stack ul li {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    margin: 10px;
+    padding: 10px;
+
+    list-style: none;
+}
+
+.stack ul li img {
+    width: 30px;
+    height: 30px;
+    transition: transform .5s ease;
+
+}
+
+.stack ul li div img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.stack ul li div:hover::after {
+    content: attr(data);
+
+    position: absolute;
+    top: 50px;
+    left: 10px;
+
+    width: 20px;
+    height: 20px;
+
+    color: var(--color-white);
+}
+
+.person-background {
+    height: 100vh;
+    width: 50%;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    z-index: 1;
+
+    background-image: url(./assets/Backgorund-portfolio-2.jpg);
+    background-size: cover;
+}
+
+.person-background::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    background: linear-gradient(90deg, transparent 30%, var(--color-black));
+    opacity: .7;
+
+
+}
+
+.wrapper-profile-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
-    .stacks-content h3{
-        color: var(--color-white);
-        font-size: 1.15rem;
 
-        margin-left: 20px;
-    } 
+    width: 50%;
+    height: 55%;
 
-    .stack  {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-    }
+    padding: 14px;
+     margin-bottom: 30px;
+    /* margin-right: 1%;  */
+    border-radius: 50%;
+    
+   
 
-    .stack ul li {
-        display: flex;
-        align-items: center;
+     background: radial-gradient(rgba(0,0, 0,0.15) 60%, transparent 0),
+    radial-gradient(#fff 68% , transparent 0),
+    linear-gradient(to top right,#fff 0%,  #073fcc 100%);  
+}
+       
 
-        position: relative;
+.profile-photo {
+    width: 100%;
+    border-radius: 50%;
+    
+}
 
-        margin: 10px;
-        padding: 10px; 
+.links a  img{
+     width: 30px;
+    height: 30px;
 
-        list-style: none;
-    }
+    margin: 10px;
+    filter: brightness(0.8);
 
-    .stack ul li  img {
-        width: 30px;
-        height: 30px;
-        transition: transform .5s ease;
+    transition: all .3s ease;
+}
+.links a  img:hover{
+   transform: scale(1.15);
+    filter: brightness(1);
 
-    } 
-    .stack ul li div img:hover{
-        transform: scale(1.2);
-        cursor: pointer;
-    } 
-
-    .stack ul li div:hover::after{
-        content: attr(data);
-
-        position: absolute;
-        top: 50px;
-        left: 10px;
-
-        width: 20px;
-        height: 20px;
-
-        color: var(--color-white);
-    }
-
-    .person-background{
-        height: 100vh;
-        width: 50%; 
-
-        position: relative;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column-reverse; 
-
-        z-index: 1;
-
-        background-image: url(./assets/Backgorund-portfolio-2.jpg);
-        background-size: cover;
-    } 
-    .person-background::after {
-        content: '';
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0; 
-        z-index: -1;
-
-        background: linear-gradient(90deg, transparent 30%, var(--color-black));
-        opacity: .7;
-
-        
-    }
-
-    .links img{
-        width: 30px;
-        height: 30px;
-    }
+}
 @keyframes written_text {
-    100%{
-      color:  var(--color-white);
+    100% {
+        color: var(--color-white);
     }
 }
-@keyframes written_text_name{
-    100%{
-      color:  var(--color-blue);
+
+@keyframes written_text_name {
+    100% {
+        color: var(--color-blue);
     }
 }
-@keyframes written_text_box{
-    50%{
-      width: 100%;
-      left:0
+
+@keyframes written_text_box {
+    50% {
+        width: 100%;
+        left: 0
     }
 
-    100%{
+    100% {
         width: 0;
         left: 100%;
     }
