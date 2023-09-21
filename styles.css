@@ -10,6 +10,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 10px;
+    background-color: var(--color-black);
 }
 
 :root {
@@ -30,7 +31,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: var(--color-black);
+
 
 }
 
@@ -54,6 +55,8 @@ body {
     font-size: 4.5rem;
     line-height: 6rem;
     width: fit-content;
+    font-size: calc(2vw + 1.5rem);
+    line-height: calc(3vw + 1.8rem);
 
     animation: written_text 3s ease forwards;
 
@@ -100,6 +103,7 @@ body {
 
 .person-name {
     margin-top: 11rem;
+    padding: 0px 20px
 }
 
 .stacks-content {
@@ -107,12 +111,14 @@ body {
     justify-content: center;
     flex-direction: column;
 
-    margin-top: 6rem;
+
+    margin: 5rem 0 2rem;
+    padding: 0px 20px
 }
 
 .stacks-content h3 {
     color: var(--color-white);
-    font-size: 1.15rem;
+    font-size: calc(.85vw+5rem);
 
     margin-left: 20px;
 }
@@ -121,9 +127,10 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.stack ul li {
+.stack li {
     display: flex;
     align-items: center;
 
@@ -135,29 +142,95 @@ body {
     list-style: none;
 }
 
-.stack ul li img {
-    width: 30px;
+.stack li img {
+    width: calc(3.5vw + 0.5rem);
     height: 30px;
     transition: transform .5s ease;
 
 }
 
-.stack ul li div img:hover {
+.stack li div img:hover {
     transform: scale(1.2);
     cursor: pointer;
 }
 
-.stack ul li div:hover::after {
+.stack li div:hover::after {
     content: attr(data);
 
     position: absolute;
-    top: 50px;
+    top: 45px;
     left: 10px;
 
     width: 20px;
     height: 20px;
 
     color: var(--color-white);
+    font-size: 1.25vh;
+}
+
+/* Small */
+@media (max-width: 376px) {
+
+    .person-name {
+        padding: 0px 10px;
+    }
+
+    .stacks-content {
+        padding: 0px 10px;
+    }
+
+    .stacks-content h3 {
+        margin-left: 10px;
+    }
+
+    .stack li {
+        margin: 0px;
+
+    }
+
+    .stack li img {
+        width: calc(3.5vw + .5rem);
+    }
+}
+
+@media (max-width:1000px) and (orientation : landscape) {
+
+    .stack li div:hover::after {
+        font-size: 1.3vw;
+    }
+
+    .stacks-content h3 {
+        font-size: 1vw;
+    }
+
+}
+
+/* Small till Medium */
+@media (min-width:377px) and (max-width:768px) {
+    .stacks-content h3 {
+        margin-left: 10px;
+    }
+
+    .stack li {
+        margin: 0px;
+
+    }
+
+    .stack li img {
+        width: calc(3.5vw + .5rem);
+    }
+
+    .person-name {
+        padding: 0px 10px;
+    }
+
+    .stacks-content {
+        padding: 0px 10px;
+    }
+
+    .stack li img {
+        width: calc(3.2vw +.5rem);
+    }
 }
 
 .person-background {
@@ -175,18 +248,23 @@ body {
 
     background-image: url(./assets/./img/Backgorund-portfolio-2.jpg);
     background-size: cover;
+    background-position: top center;
 }
 
 .person-background::after {
-    content: '';
+    content: "";
+    position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
+
+    opacity: .7;
     z-index: -1;
 
-    background: linear-gradient(90deg, transparent 30%, var(--color-black));
-    opacity: .7;
+    background: linear-gradient(90deg, transparent 30%, var(--color-black)),
+        linear-gradient(180deg, transparent 30%, var(--color-black)),
+        linear-gradient(0deg, transparent 365%, var(--color-black));
 
 
 }
@@ -196,15 +274,14 @@ body {
     justify-content: center;
     align-items: center;
 
+    padding: calc(1vw + 0.2rem);
+    margin: 20px 15px;
 
-    width: 50%;
-    height: 100%;
-    padding: 14px;
     margin-top: 25%;
-    /*   margin-bottom: 30px; */
+    margin-bottom: 30px;
     margin-right: 1%;
-    border-radius: 50%;
 
+    border-radius: 50%;
 
 
     background: radial-gradient(rgba(0, 0, 0, 0.15) 60%, transparent 0),
@@ -214,17 +291,18 @@ body {
 
 
 .profile-photo {
+    max-width: 320px;
     width: 100%;
     border-radius: 50%;
-
 }
 
 .links a img {
-    width: 30px;
-    height: 30px;
+    width: calc(2vw + 0.8rem);
+    height: calc(2vw + 0.8rem);
+    margin: calc(0.8vw + 0.8rem);
 
-    margin: 10px;
-    filter: brightness(0.8);
+
+    filter: brightness(.8);
 
     transition: all .3s ease;
 }
@@ -235,11 +313,32 @@ body {
 
 }
 
+@media(max-width:768px) {
+    .links a img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media(max-width:1440px) and (orientation:landscape) {
+    .profile-photo {
+        width: 45vw;
+    }
+}
+
+@media(min-width:1440px) {
+    .profile-photo {
+        max-width: initial;
+        width: 25vw;
+
+    }
+}
+
 /*final da primeria sessao*/
 
 
 #about {
-    height: 100%;
+    height: auto;
     width: 100%;
     background: var(--color-black);
 
@@ -249,7 +348,7 @@ body {
 }
 
 .backgorund-about {
-    height: 100%;
+    height: 100vh;
     width: 50%;
 
     display: flex;
@@ -295,13 +394,14 @@ body {
     width: 50%;
 
     padding: 3rem;
+    margin: 6rem 0rem;
 
 }
 
 .section-subtilte h2 p {
 
     display: inline-block;
-    font-size: 3rem;
+    font-size: calc(1.4vw + 1.2rem)
 }
 
 .section-subtilte h2 p:nth-child(2) span {
@@ -314,7 +414,7 @@ body {
 
 #about h3 {
     margin: 3rem;
-    font-size: 2rem;
+    font-size: calc(.8vw + .8rem);
 }
 
 #about h3 p {
@@ -330,7 +430,7 @@ body {
 
 #about h4 {
     margin: 1rem 3rem;
-    font-size: 1.5rem;
+    font-size: calc(.8vw + .8rem);
 
 }
 
@@ -338,8 +438,9 @@ body {
     display: inline;
     padding: 2px 4px;
     color: var(--color-blue);
-    font-size: 2rem;
-    font-weight: 1.7rem;
+    font-size: calc(.8vw + .8rem);
+    margin: 0rem 0rem;
+
 
 }
 
@@ -353,22 +454,21 @@ body {
 
 .btn-curriculo a {
     display: inline;
-    width: 100%;
-    max-width: 172px;
-    padding: 10px;
-    
+    padding: calc(0.2vw + 0.8rem)calc(2vw + 0.8rem);
+    font-size: calc(.7vw + .55rem);
+
     margin-bottom: 3rem;
-    
+
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     letter-spacing: .15rem;
-   
+
     border-radius: 10px;
     cursor: pointer;
     color: var(--color-blue);
     background-color: var(--color-white);
     text-align: center;
-    font-size: 1.3rem;
+
 }
 
 .btn-curriculo a:hover {
@@ -376,10 +476,78 @@ body {
     filter: brightness(.8);
 }
 
+
+
+/* Small */
+@media(max-width:375px) {
+    #box-section {
+        padding: 1rem;
+
+    }
+
+    #box-section h3 p {
+        font-size: .8rem;
+    }
+
+    #box-section h3 {
+
+        margin: 2rem 1rem;
+    }
+
+    #about h4 {
+
+        margin: 2rem 1rem;
+        font-size: calc(.8vw + .5rem);
+    }
+
+    #about h4 p {
+
+        margin: 0rem 0rem;
+        font-size: calc(.8vw + .5rem);
+    }
+}
+
+/* md */
+@media(min-width:376px) and (max-width:768px) {
+    #box-section {
+        padding: 1.3rem;
+    }
+
+    .section-subtilte p {
+        font-size: 2rem;
+    }
+
+    #box-section h3 {
+        margin: 1.5rem 1rem;
+    }
+
+    #about h4 {
+        margin: 1.5rem;
+    }
+} 
+
+@media(min-width:768px) and (max-width:1440) {
+    #box-section {
+     padding: 1.8rem;
+    }
+
+    .section-subtilte p {
+      font-size: 2.5rem;
+    }
+
+    #box-section h3 {
+        margin: 2rem 1rem ;
+    }
+
+    #about h4 {
+        margin: 1.5rem;
+    }
+}
+
 /* final do sobre*/
 
 #projects {
-    height: 100vh;
+    height: auto ;
     width: 100%;
 
     background: var(--color-black);
@@ -392,7 +560,7 @@ body {
 }
 
 .project-tiltle h2 {
-    margin: 3rem;
+    margin-top: 60px;
     padding: 2rem;
     font-size: 3rem;
     color: var(--color-white);
@@ -410,7 +578,7 @@ body {
 } */
 
 
-.container-projects{
+.container-projects {
     height: 100%;
     width: 100%;
     max-width: 1020px;
@@ -419,15 +587,16 @@ body {
     justify-content: center;
     align-items: center;
 }
-.swiper{
-    height: 100%;
+
+.swiper {
+    height: 500px;
     width: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-
+    padding: 0px 20px ;
     margin-top: 2rem;
     height: 500px;
 
@@ -448,7 +617,7 @@ body {
     width: 100%;
 
     padding: 30px 20px 20px;
- /*    margin: 0px 10px; */
+    /*    margin: 0px 10px; */
     background: var(--color-white);
     border-radius: 20px;
 
@@ -520,7 +689,7 @@ body {
 }
 
 .card-projects span {
-    
+
     display: flex;
     justify-content: center;
     color: var(--color-black);
@@ -561,7 +730,20 @@ body {
 .btn-project a:hover {
     opacity: .7;
 
+} 
+
+@media (max-width:1000px){
+    .swiper{
+        max-width: 700px;
+    }
 }
+@media (max-width:700px){
+    .swiper{
+        max-width: 350px;
+    }
+}
+
+/* final project */
 
 
 
@@ -590,7 +772,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row;
-    
+
     margin-left: 2.5rem;
 
 
@@ -640,11 +822,11 @@ body {
     display: block;
     margin: .25rem 0 rem;
     color: var(--color-white);
-} 
+}
 
-#header{
+#header {
     display: flex;
-    
+
     align-items: center;
     justify-content: space-around;
 
@@ -652,7 +834,7 @@ body {
 
     width: 100%;
 
-    padding: 15px 30px ;
+    padding: 15px 30px;
     background-color: transparent;
     transition: all .3s ease;
 
@@ -665,31 +847,33 @@ body {
     transition: opacity .3s ease;
 }
 
-.header-title h1:hover{
+.header-title h1:hover {
     opacity: .8;
 }
 
-.navebar{
+.navebar {
     width: 100%;
     max-width: 350px;
 
-} 
-.navebar ul{
+}
+
+.navebar ul {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
 .navebar ul li a {
 
-color: var(--color-blue);
-font-size: 1.5rem;
-font-weight: 700;
+    color: var(--color-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
 
 
 
 }
 
-#footer{
+#footer {
     height: 15vh;
     width: 100%;
 
@@ -698,20 +882,20 @@ font-weight: 700;
     align-items: center;
 
     background-color: #191919;
-   
+
 }
 
-.container-footer{
+.container-footer {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 
     font-size: 1.5rem;
     font-weight: bold;
 
     flex-direction: column;
     color: var(--color-white);
-} 
+}
 
 
 
