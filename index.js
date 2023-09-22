@@ -1,10 +1,13 @@
 /* ".swiper-button-prev"
-.swiper-button-next", */
+/*.swiper-button-next*/
 
 
-let swiper = createSwiper(".mySwiper",".swiper-pagination",".swiper-button-next",".swiper-button-prev")
-
-function createSwiper  (container,pagination,nextButton,prevButton) {
+let swiper = createSwiper(".mySwiper", ".swiper-pagination", ".swiper-button-next", ".swiper-button-prev")
+let header = document.getElementById('header')
+const menuHumburguer = document.querySelector('.menu-humburguer')
+const nav = document.querySelector('.navbar')
+const navLinks = document.querySelectorAll('.navbar-links li a ')
+function createSwiper(container, pagination, nextButton, prevButton) {
     return new Swiper(container, {
         slidesPerView: handleWidth(),
         spaceBetween: 30,
@@ -16,32 +19,41 @@ function createSwiper  (container,pagination,nextButton,prevButton) {
             nextEl: nextButton,
             prevEl: prevButton,
         },
-    
+
     })
 }
 
- 
 
 
-let header = document.getElementById('header')
 
-function  handleWidth  (){
-    let getWidth = window.innerWidth || document.documentElement.clientWidth
-    let slideShow = 3 
+menuHumburguer.addEventListener('click', ()=>{
+    nav.classList.toggle('active') 
     
+}) 
 
-    if(getWidth < 1001 ){
-        slideShow = 2 
+navLinks.forEach(item =>{
+    item.addEventListener('click', ()=>{
+        nav.classList.toggle('active')
+    })
+})
+
+function handleWidth() {
+    let getWidth = window.innerWidth || document.documentElement.clientWidth
+    let slideShow = 3
+
+
+    if (getWidth < 1001) {
+        slideShow = 2
     }
 
-    if(getWidth <700){
-        slideShow = 1 
+    if (getWidth < 700) {
+        slideShow = 1
     }
 
     return slideShow
 }
 
-window.addEventListener('resize', ()=>{
+window.addEventListener('resize', () => {
     swiper.params.slidesPerView = handleWidth()
     swiper.update()
 })
@@ -52,5 +64,5 @@ window.addEventListener('scroll', () => {
     } else {
         header.style.background = 'transparent'
     }
-}) 
+})
 
